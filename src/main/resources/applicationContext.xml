@@ -23,4 +23,19 @@
         <constructor-arg ref="musicBean2"/>
     </bean>
 
+<!--    бины для кошелька-->
+    <bean id="pay_1" class="main.de.ait.wallet.service.impl.CashPaymentImpl"/>
+    <bean id="pay_2" class="main.de.ait.wallet.service.impl.PayByCardImpl"/>
+    <bean id="pay_3" class="main.de.ait.wallet.service.impl.BankTransferImpl"/>
+
+    <bean id="wallet_1" class="main.de.ait.wallet.controller.Wallet">
+        <constructor-arg ref="pay_1"/>
+    </bean>
+    <bean id="wallet_2" class="main.de.ait.wallet.controller.Wallet">
+        <constructor-arg ref="pay_2"/>
+    </bean>
+    <bean id="wallet_3" class="main.de.ait.wallet.controller.Wallet">
+        <constructor-arg ref="pay_3"/>
+    </bean>
+
 </beans>
